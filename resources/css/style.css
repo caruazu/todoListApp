@@ -1,0 +1,377 @@
+@charset "UTF-8";
+
+body {
+  background: #ffecb3;
+}
+
+body, button, li {
+  font-family: 'Roboto', sans-serif;
+}
+
+header, input {
+  font-family: 'Anton', sans-serif;
+}
+
+.noFill {
+  fill: none;
+}
+
+header {
+  width: 100%;
+  height: 80px;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+
+  background-color: #b71c1c;
+  border-radius: 0 0 5px 5px;
+}
+
+header div.logo {
+  width: 100%;
+  padding: 10px;
+}
+
+header div.logo img {
+  margin-left: 10px;
+  width: 60px;
+  height: 60px;
+  float: left;
+}
+
+header div.logo h1 {
+  color: #fff;
+  float: left;
+  font-size: 40px;
+  font-weight: 400;
+}
+
+header section {
+  padding: 15px;
+}
+
+header input {
+  width: 100%;
+  height: 50px;
+
+  text-indent: 18px;
+  font-size: 15px;
+  font-weight: 400;
+  
+  border-radius: 5px 25px 25px 5px;
+
+  float: left;
+  color: #fff;
+  padding: 0 60px 0 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 0px;
+  box-shadow: 0px 2px 4px rgba(44, 62, 80, 0.15);
+  outline: none;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+}
+
+header input::placeholder{
+  color: #fff;
+}
+
+header button {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 15; 
+  right: 15px;
+  z-index: 2;
+  border-radius: 25px;
+  background: #fff;
+  border: 0px;
+  box-shadow: none;
+  outline: none;  
+
+  cursor: pointer;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+}
+
+header button svg {
+  width: 16px;
+  height: 16px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -8px 0 0-8px;
+  
+}
+
+header button svg .fill {
+  fill: #b71c1c;
+}
+
+main {
+  padding-top: 80px;
+  padding-bottom: 50px;
+}
+
+.container {
+  width: 100%;
+  float: left;
+  padding: 15px; 
+}
+
+.container ul.todo {
+  width: 100%;
+  float: left;
+}
+
+ul li {
+  font-weight: 300;
+}
+
+ul.todo li {
+  width: 100%;
+  min-height: 50px;
+  float: left;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000;
+  line-height: 22px; 
+  padding: 14px 100px 14px 14px;
+  margin: 0 0 10px 0;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.10);
+  border-radius: 5px;
+}
+
+ul.todo li:last-of-type {
+  margin: 0;
+}
+
+ul.todo li .buttons {
+  width: 100px;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+ul.todo li .buttons button {
+  width: 50px;
+  height: 50px;
+  float: left;
+  background: none;
+  position: relative;
+  border: 0px;
+  box-shadow: none;
+  outline: none;
+
+  cursor: pointer;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+}
+
+ul.todo li .buttons button:last-of-type:before {
+  content: '';
+  width: 1px;
+  height: 30px;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  background: #FFE082;
+}  
+
+ul.todo li .buttons button svg {
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -11px 0 0 -11px;
+}
+
+ul.todo li .buttons button.complete svg {
+  border-radius: 11px;
+  border: 1.5px solid #1cb71c;
+
+  -webkit-transition: background 0.2s ease;
+  -moz-transition: background 0.2s ease;
+  -ms-transition: background 0.2s ease;
+  -o-transition: background 0.2s ease;
+  transition: background 0.2s ease;
+}
+
+ul.todo#completed li .buttons button.complete svg {
+  background: #1cb71c;
+  border: 0px;
+}
+
+ul.todo:not(#completed) li .buttons button.complete:hover svg {
+  background: rgba(28, 183, 28, 0.8);
+}
+
+ul.todo:not(#completed) li .buttons button.complete:hover svg .fill {
+  fill: #fff;
+}
+
+ul.todo#completed li .buttons button.complete svg .fill {
+  fill: #fff;
+}
+
+ul.todo li .buttons button svg .fill {
+  -webkit-transition: fill 0.2s ease;
+  -moz-transition: fill 0.2s ease;
+  -ms-transition: fill 0.2s ease;
+  -o-transition: fill 0.2s ease;
+  transition: fill 0.2s ease;
+
+
+  transition: fill 0.2s ease;
+}
+
+ul.todo li .buttons button.remove svg .fill {
+  fill: #c0cecb;
+}
+
+ul.todo li .buttons button.remove:hover svg .fill {
+  fill: #e85656;
+}
+
+ul.todo li .buttons button.complete svg .fill {
+  fill: #1cb71c;
+}
+
+ul.todo#completed {
+  position: relative;
+  padding: 60px 0 0 0;
+  opacity: 0.8;
+}
+
+ul.todo#completed:before {
+  content: '';
+  width: 150px;
+  height: 1px;
+  background: #ffe082;
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  margin: 0 0 0 -75px;
+}
+
+ul.todo#todo:empty:after {
+  content: 'You have nothing to-do!';
+  margin: 15px 0 0 0;
+}
+
+ul.todo#completed:empty:after {
+  content: 'You have yet to complete any tasks.';
+}
+ul.todo#todo:empty:after,
+ul.todo#completed:empty:after {
+  width: 100%;
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  color: #aaa;
+}
+
+.swal-wide{
+  max-width: 400px;
+}
+
+footer {
+  width: 100%;
+  height: 40px;
+
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 99999999;
+
+  background-color: #b71c1c;
+  border: 0px;
+
+  text-align: center;
+}
+
+footer .dropup {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: block;
+}
+
+footer .dropup button {
+  width: 100%;
+  height: 100%;
+
+  background: none;
+  border: 0px;
+  box-shadow: none;
+  outline: none;  
+  padding: 6px;
+  cursor: pointer;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+}
+
+footer button svg .fill {
+    fill: #fff;
+} 
+
+footer .dropup-content {
+  width: 100%;
+  display: none;
+  position: absolute;
+  bottom: 40px;
+  left: 0px;
+  background: #b71c1c;
+  box-shadow: 0px 0px 10  px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropup */
+footer .dropup-content a {
+  color: #fff;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropup links on hover */
+footer .dropup-content a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 2px 4px rgba(44, 62, 80, 0.15);
+}
+
+footer .dropup:hover .dropup-content {
+  display: block;
+}
+
+@media (max-width: 450px){
+  ul.todo:not(#completed) li .buttons button.complete:hover svg {
+    background: #fff;
+  }
+
+  ul.todo:not(#completed) li .buttons button.complete:hover svg .fill {
+    fill: #1cb71c;
+  }
+}

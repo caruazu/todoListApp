@@ -1,0 +1,90 @@
+@charset "UTF-8";
+
+a {
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
+}
+
+ul.list li {
+  width: 100%;
+  min-height: 50px;
+  float: left;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000;
+  line-height: 22px; 
+  padding: 14px 100px 14px 14px;
+  margin: 0 0 10px 0;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.10);
+  border-radius: 5px;
+}
+
+ul.list li:last-of-type {
+  margin: 0;
+}
+
+ul.list li .buttons {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+ul.list li .buttons button {
+  width: 50px;
+  height: 50px;
+  float: left;
+  background: none;
+  position: relative;
+  border: 0px;
+  box-shadow: none;
+  outline: none;
+
+  cursor: pointer;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+}
+
+ul.list li .buttons button svg {
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -11px 0 0 -11px;
+}
+
+ul.list li .buttons button svg .fill {
+  -webkit-transition: fill 0.2s ease;
+  -moz-transition: fill 0.2s ease;
+  -ms-transition: fill 0.2s ease;
+  -o-transition: fill 0.2s ease;
+  transition: fill 0.2s ease;
+
+
+  transition: fill 0.2s ease;
+}
+
+ul.list li .buttons button.remove svg .fill {
+  fill: #c0cecb;
+}
+
+ul.list li .buttons button.remove:hover svg .fill {
+  fill: #e85656;
+}
+
+ul.list li a {
+  color: #b71c1c;
+}
+
+ul.list li a:hover {
+  color: #1565c0;
+  cursor: pointer;
+}
