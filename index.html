@@ -2,20 +2,15 @@
 <html lang="en-US">
 <head>
   <meta charset="utf-8">
-  <title></title>
+  <title>Caruazu App</title>
   
   <!-- Required meta tags -->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <!-- Roboto font embed -->
+  <!-- Font embed -->
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
-
-  <!-- Anton font embed -->
   <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
-
-  <!-- My CSS -->
-  <link rel="stylesheet" href="resources/css/style.css">
-  <link rel="stylesheet" href="resources/css/reset.min.css">
 
   <!-- Description of the Web Page -->
   <meta name="description" content="">
@@ -25,6 +20,13 @@
 
   <!-- Author of the page -->  
   <meta name="author" content="Cauê Santos">
+
+  <!-- My CSS -->
+  <link rel="stylesheet" href="resources/css/style.css">
+  <link rel="stylesheet" href="resources/css/reset.min.css">
+
+  <!-- Manifest -->
+  <link rel="manifest" href="manifest.json">
   <!-- I got most of the code and de visual stuff
   from Max Sandelin's tutorial on the youtube.
   link: https://www.youtube.com/watch?v=bGLZ2pwCaiI
@@ -49,7 +51,7 @@
   <nav>
     <div class="dropup">
       <button id="menu-btn" class="dropbtn">
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 26 26" version="1.1" width="26px" height="26px"><g id="surface1"><path style=" " class="fill" d="M 0 4 L 0 6 L 26 6 L 26 4 Z M 0 12 L 0 14 L 26 14 L 26 12 Z M 0 20 L 0 22 L 26 22 L 26 20 Z "/></g></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 26 26" version="1.1" width="26px" height="26px"><g id="surface1"><path class="fill" d="M 0 4 L 0 6 L 26 6 L 26 4 Z M 0 12 L 0 14 L 26 14 L 26 12 Z M 0 20 L 0 22 L 26 22 L 26 20 Z "/></g></svg>
       </button>
 
       <div class="dropup-content">
@@ -62,6 +64,20 @@
     </div>
 </nav>
 </footer>
+
+<script>
+  window.addEventListener('load', async e => {
+
+  if('serviceWorker' in navigator) {
+    try {
+      navigator.serviceWorker.register('sw.js');
+    } catch (error) {
+      console.log('SW reg failed!');
+    }
+  }
+
+});
+</script>
 </body>
 
 </html>
