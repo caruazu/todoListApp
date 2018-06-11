@@ -1,10 +1,3 @@
-/*I got most of the code and de visual stuff
-  from Max Sandelin's tutorial on the youtube.
-  link: https://www.youtube.com/watch?v=bGLZ2pwCaiI
-*/
-
-/*jshint esversion: 6 */
-
 /*
 Function that return the @name get param on the @url
 */
@@ -19,17 +12,20 @@ function gup(name, url) {
     var regexS = "[\\?&]" + name + "=([^&#]*)";
     var regex = new RegExp(regexS);
     var results = regex.exec(url);
-    return results === null ? null
+    return results === null
+        ? null
         : results[1];
 }
 
 //Create our list_name that takes the "list" get param or use 'todoList' as default
-var list_name = (gup('list', location)) ? gup('list', location)
+var list_name = (gup('list', location))
+    ? gup('list', location)
     : 'todoList';
 
 
 //Create our data to storage our to-do lists and completed lists on the local storage
-var data = (localStorage.getItem(list_name)) ? JSON.parse(localStorage.getItem(list_name))
+var data = (localStorage.getItem(list_name))
+    ? JSON.parse(localStorage.getItem(list_name))
     : {
         todo: [],
         complete: []
@@ -101,6 +97,8 @@ function confirmRemove() {
 Function that complete the to-do item or uncomplete the completed item
 */
 function completeItem() {
+    "use strict";
+
     var item = this.parentNode.parentNode;
     var parent = item.parentNode;
     var id = parent.id;
@@ -117,7 +115,8 @@ function completeItem() {
     localStorageUpdated();
 
     //Check if the item should be added to the completed list or re-added to the to-do list
-    var target = (id === 'todo') ? document.getElementById('completed')
+    var target = (id === 'todo')
+        ? document.getElementById('completed')
         : document.getElementById('todo');
 
     parent.removeChild(item);
@@ -128,7 +127,8 @@ function completeItem() {
 function addItemToDOM(text, completed) {
     "use strict";
 
-    var list = (completed) ? document.getElementById('completed')
+    var list = (completed)
+        ? document.getElementById('completed')
         : document.getElementById('todo');
 
     var item = document.createElement('li');
@@ -201,6 +201,23 @@ document.getElementById("item").addEventListener("keyup", function (event) {
     }
 });
 
+
+function hideMenuBar() {
+    "use strict";
+
+    var footer = document.getElementById('footer');
+
+    footer.setAttribute('style', 'display: none;');
+}
+
+function showMenuBar() {
+    "use strict";
+
+    var footer = document.getElementById('footer');
+
+    footer.setAttribute('style', 'display: block;');
+}
+
 /*
 Create an event listener thar create a to-do
 list whenever a user click on the button
@@ -224,4 +241,11 @@ document.getElementById("add").addEventListener("click", function () {
         //Update the local storage
         localStorageUpdated();
     }
+
+    showMenuBar();
 });
+
+var item = document.getElementById('item');
+
+item.addEventListener('mouseover', hideMenuBar);
+item.addEventListener('mouseout', showMenuBar);

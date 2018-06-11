@@ -152,6 +152,23 @@ document.getElementById("item").addEventListener("keyup", function (event) {
     }
 });
 
+
+function hideMenuBar() {
+    "use strict";
+
+    var footer = document.getElementById('footer');
+
+    footer.setAttribute('style', 'display: none;');
+}
+
+function showMenuBar() {
+    "use strict";
+
+    var footer = document.getElementById('footer');
+
+    footer.setAttribute('style', 'display: block;');
+}
+
 /*
 Create an event listener thar create a to-do
 list whenever a user click on the button
@@ -172,4 +189,11 @@ document.getElementById("add").addEventListener("click", function () {
 
         localStorageUpdated();
     }
+
+    showMenuBar();
 });
+
+var item = document.getElementById('item');
+
+item.addEventListener('mouseover', hideMenuBar);
+item.addEventListener('mouseout', showMenuBar);
