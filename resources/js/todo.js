@@ -1,25 +1,21 @@
 /* jshint esversion: 6 */
 
 /*
-Function that return the @name get param on the @url
+Function that return the @param_name get param on the @url
 */
-function gup(name, url) {
+function obtainGetParamValue(name, url) {
     "use strict";
 
-    if (!url) {
-        url = location.href;
-    }
-
-    name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
-    var regexS = "[\\?&]" + name + "=([^&#]*)";
-    var regex = new RegExp(regexS);
+    param_name = param_name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+    var expression = "[\\?&]" + param_name + "=([^&#]*)";
+    var regex = new RegExp(expression);
     var results = regex.exec(url);
     return results === null ? null
         : results[1];
 }
 
 //Create our list_name that takes the 'list' get param or use 'todoList' as default
-var list_name = (gup('list', location)) ? gup('list', location)
+var list_name = (obtainGetParamValue('list', location)) ? obtainGetParamValue('list', location)
     : 'todoList';
 
 
@@ -70,7 +66,7 @@ Function that pop-up a confirm allert to
 make sure that the user really want to
 remove the item from the list
 */
-function confirmRemove() {
+function confirmRemoveAllert() {
     "use strict";
 
     swal({
@@ -137,7 +133,7 @@ function addItemToDOM(text, completed) {
     remove.classList.add('remove');
     remove.innerHTML = removeSVG;
     //Add a click event for removing the item
-    remove.addEventListener('click', confirmRemove);
+    remove.addEventListener('click', confirmRemoveAllert);
 
     var complete = document.createElement('button');
     complete.classList.add("complete");
@@ -161,23 +157,20 @@ the screen
 function renderTodoList() {
     "use strict";
 
-    var i;
-    var value;
-
     //If the data is empty do nothing
     if (!data.todo.length && !data.complete.length) {
         return;
     }
 
     //Render the to-do list on the screen
-    for (i = 0; i < data.todo.length; i += 1) {
-        value = data.todo[i];
+    for (let i = 0; i < data.todo.length; i += 1) {
+        let value = data.todo[i];
         addItemToDOM(value);
     }
 
     //Render the completed list on the screen
-    for (i = 0; i < data.complete.length; i += 1) {
-        value = data.complete[i];
+    for (let i = 0; i < data.complete.length; i += 1) {
+        let value = data.complete[i];
         addItemToDOM(value, true);
     }
 }
@@ -249,7 +242,7 @@ document.getElementById("add").addEventListener("click", function () {
 /*
 Control when to show or hide the footer menu bar
 */
-var item = document.getElementById('item');
+var inputItem = document.getElementById('item');
 
-item.addEventListener('mouseover', hideMenuBar);
-item.addEventListener('mouseout', showMenuBar);
+inputItem.addEventListener('mouseover', hideMenuBar);
+inputItem.addEventListener('mouseout', showMenuBar);

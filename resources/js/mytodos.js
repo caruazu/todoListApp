@@ -1,3 +1,5 @@
+/* jshint esversion: 6 */
+
 /*
 Function that create our empty data and
 push one first item 'todoList' to it.
@@ -7,15 +9,14 @@ lose their old to-do list
 function createData() {
     "use strict";
 
-    var myArray = [];
-    myArray.push('todoList');
+    let array_list = [];
+    array_list.push('todoList');
 
-    return myArray;
+    return array_list;
 }
 
 //Create our data to storage our to-do lists on the local storage
-var data = (localStorage.getItem('myTodosList'))
-    ? JSON.parse(localStorage.getItem('myTodosList'))
+var data = (localStorage.getItem('myTodosList')) ? JSON.parse(localStorage.getItem('myTodosList'))
     : createData();
 
 /*
@@ -63,7 +64,7 @@ Function that pop-up a confirm allert to
 make sure that the user really want to
 remove the item from the list
 */
-function confirmRemove() {
+function confirmRemoveAllert() {
     "use strict";
 
     swal({
@@ -104,7 +105,7 @@ function addItemToDOM(text) {
     remove.classList.add('remove');
     remove.innerHTML = removeSVG;
     //Add a click event for removing the item
-    remove.addEventListener('click', confirmRemove);
+    remove.addEventListener('click', confirmRemoveAllert);
 
 
     buttons.appendChild(remove);
@@ -121,17 +122,14 @@ render the to-dos list on the screen
 function renderTodosList() {
     "use strict";
 
-    var i;
-    var value;
-
     //If the data is empty do nothing
     if (!data.length) {
         return;
     }
 
     //Render the to-dos list on the screen
-    for (i = 0; i < data.length; i += 1) {
-        value = data[i];
+    for (let i = 0; i < data.length; i += 1) {
+        let value = data[i];
         addItemToDOM(value);
     }
 }
@@ -193,7 +191,7 @@ document.getElementById("add").addEventListener("click", function () {
     showMenuBar();
 });
 
-var item = document.getElementById('item');
+var inputItem = document.getElementById('item');
 
-item.addEventListener('mouseover', hideMenuBar);
-item.addEventListener('mouseout', showMenuBar);
+inputItem.addEventListener('mouseover', hideMenuBar);
+inputItem.addEventListener('mouseout', showMenuBar);
